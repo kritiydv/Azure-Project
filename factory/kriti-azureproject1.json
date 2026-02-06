@@ -1,0 +1,9 @@
+{
+	"name": "kriti-azureproject1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6035136f-ab1f-46e2-8715-c410bad84306",
+		"tenantId": "84154f3e-91b7-4061-8ed7-850665aba71e"
+	}
+}
