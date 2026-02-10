@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.lopp_input",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "last_cdc",
@@ -183,7 +187,10 @@
 														"value": "@item().table",
 														"type": "Expression"
 													},
-													"file": "@concat(pipeline().parameters.table,'_',variables('current'))"
+													"file": {
+														"value": "@concat(item().table,'_',variables('current'))",
+														"type": "Expression"
+													}
 												}
 											},
 											"enableLogging": false,
@@ -253,7 +260,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "bronze",
-													"folder": "CDC",
+													"folder": {
+														"value": "@{item().table}",
+														"type": "Expression"
+													},
 													"file": "empty.json"
 												}
 											}
